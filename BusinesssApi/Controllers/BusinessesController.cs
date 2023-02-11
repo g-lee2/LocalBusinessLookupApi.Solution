@@ -75,5 +75,20 @@ namespace BusinessApi.Controllers
     {
       return _db.Businesses.Any(e => e.BusinessId == id);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteBusiness(int id)
+    {
+      Business business = await _db.Businesses.FindAsync(id);
+      if (business == null)
+      {
+        return NotFound();
+      }
+
+      _db.Businesses.Remove(business);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
   }
 }
