@@ -16,9 +16,14 @@ namespace BusinessApi.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Business>>> Get()
+    public async Task<List<Business>> Get([FromQuery] PaginationParams @params)
     {
-      return await _db.Businesses.ToListAsync();
+      IQueryable<Business> query = _db.Businesses.AsQueryable();
+
+      int skip = (@params.Page - 1) * @params.ItemsPerPage;
+      query = query.Skip(skip).Take(@params.ItemsPerPage);
+
+      return await query.ToListAsync();
     }
 
     [HttpGet("{id}")]
