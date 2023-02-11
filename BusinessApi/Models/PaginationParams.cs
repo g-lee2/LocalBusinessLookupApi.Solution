@@ -3,7 +3,7 @@ namespace BusinessApi.Models
   public class PaginationParams
   {
     private const int _maxItemsPerPage = 5;
-    private int _itemsPerPage;
+    private int _itemsPerPage = 5;
 
     public int Page { get; set; } = 1;
     public int ItemsPerPage

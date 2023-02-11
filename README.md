@@ -9,15 +9,14 @@ This application allows the user to find local restaurants and shops in town.
 ## Technologies Used
 
 - _C#_
-- _.NET_
 - _Entity Framework Core_
 - _MySQL_
-- _ASP.NET Core_
+- _ASP.NET Core MVC_
 - _Swagger_
 
 ## Description
 
-This is an application that allows the user
+This is an application that allows the user to make Get, Post, Put, Delete requests to the BusinessApi in order to find local stores. One may be able to find a specific store with the unique id of the business and they may also filter the amount of store they would like to see at a given time.
 
 ## Setup/Installation Requirements
 
@@ -47,7 +46,7 @@ This is an application that allows the user
 }
 ```
 
-- To start the application, run the following codes in the production directory:
+- To launch the API, run the following codes in the production directory:
 
 ```
     $ dotnet build
@@ -62,8 +61,93 @@ This is an application that allows the user
 1. Launch MySQL Workbench and open your local instance.
 2. Then follow [this link](https://www.learnhowtoprogram.com/c-and-net-part-time/database-basics/introduction-to-mysql-workbench-creating-a-database) with instructions to create a database, based on the data from the `Models` directory.
 3. You may also use migrations to create and update your database without having to manually create them yourself. Follow [this link](https://www.learnhowtoprogram.com/c-and-net-part-time/many-to-many-relationships/code-first-development-and-migrations) for instructions to install the right tools.
+4. There should only be one table called `Businesses`.
 
 ## API Documentation/Endpoints
+
+Base URL: `https://localhost:5001`
+
+#### HTTP Request Structure
+
+```
+GET /api/[controller]
+POST /api/[controller]
+GET /api/[controller]/{id}
+PUT /api/[controller]/{id}
+DELETE /api/[controller]/{id}
+```
+
+### Note on Request Structure
+
+The [controller] for the BusinessApi is Businesses.
+
+```
+GET /api/Businesses
+POST /api/Businesses
+GET /api/Businesses/{id}
+PUT /api/Businesses/{id}
+DELETE /api/Businesses/{id}
+```
+
+#### Example Query
+
+```
+https://localhost:5001/api/Businesses/5
+```
+
+#### Sample JSON Response
+
+```
+{
+  "businessId": 5,
+  "name": "Over the Sea",
+  "address": "127 Moole Street",
+  "description": "Pet Shop",
+  "rating": 2.5,
+  "review": "Employee don't help out"
+}
+```
+
+#### Example Query With Pagination Params
+
+```
+https://localhost:5001/api/Businesses?Page=1&ItemsPerPage=3
+```
+
+#### Sample JSON Response
+
+```
+[
+  {
+    "businessId": 1,
+    "name": "Starz Restaurant",
+    "address": "123 Moole Street",
+    "description": "Fancy american restaurant",
+    "rating": 4.6,
+    "review": "Pricy and need to make reservations"
+  },
+  {
+    "businessId": 2,
+    "name": "Rexie's Bookstore",
+    "address": "124 Moole Street",
+    "description": "Antique bookstore",
+    "rating": 3.1,
+    "review": "Not a lot of books"
+  },
+  {
+    "businessId": 3,
+    "name": "Matilda Jewlers",
+    "address": "125 Moole Street",
+    "description": "Local handmande jewlery shop",
+    "rating": 5,
+    "review": "Has a variety of jewlery and can customize"
+  }
+]
+```
+
+### Note on Pagination Params
+
+Both the page query parameter and items per page query parameters are optional. The BusinessApi will return a default of 5 results per page at a time, and up to a maximum of 5. If the page query parameter is left blank, the default page returned is 1.
 
 ## Known Bugs
 
