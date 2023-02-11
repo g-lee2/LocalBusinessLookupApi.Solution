@@ -108,7 +108,7 @@ https://localhost:5001/api/Businesses/5
 }
 ```
 
-#### Example Query With Pagination Params
+#### Example Query With Pagination Parameterss
 
 ```
 https://localhost:5001/api/Businesses?Page=1&ItemsPerPage=3
@@ -145,9 +145,9 @@ https://localhost:5001/api/Businesses?Page=1&ItemsPerPage=3
 ]
 ```
 
-### Note on Pagination Params
+### Note on Pagination Parameters
 
-Both the page query parameter and items per page query parameters are optional. The BusinessApi will return a default of 5 results per page at a time, and up to a maximum of 5. If the page query parameter is left blank, the default page returned is 1.
+Both the page query parameter and items per page query parameters are optional. The BusinessApi will return a default of 5 results per page at a time, and up to a maximum of 5. If the page query parameter is left blank, it will return page 1 as default.
 
 ## Known Bugs
 
