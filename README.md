@@ -89,6 +89,23 @@ PUT /api/Businesses/{id}
 DELETE /api/Businesses/{id}
 ```
 
+### Note on Different Responses
+
+200: Success
+201: Created (new local business was successfully created)
+400: Error: Bad Request
+404: Error: Not Found (Entered a non-existent id)
+
+#### Parameters
+
+| Name        | Type   |
+| ----------- | ------ |
+| name        | string |
+| address     | string |
+| description | string |
+| rating      | double |
+| review      | date   |
+
 #### Example Query
 
 ```
@@ -108,7 +125,7 @@ https://localhost:5001/api/Businesses/5
 }
 ```
 
-#### Example Query With Pagination Parameterss
+#### Example Query With Pagination Parameters
 
 ```
 https://localhost:5001/api/Businesses?Page=1&ItemsPerPage=3
