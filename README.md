@@ -92,7 +92,7 @@ DELETE /api/Businesses/{id}
 ### Note on Different Responses
 
 200: Success<br>
-201: Created (new local business was successfully created)<br>
+201: Created (New local business was successfully created)<br>
 400: Error: Bad Request<br>
 404: Error: Not Found (Entered a non-existent id)<br>
 
@@ -104,7 +104,7 @@ DELETE /api/Businesses/{id}
 | address     | string |
 | description | string |
 | rating      | double |
-| review      | date   |
+| review      | string |
 
 #### Example Query
 
