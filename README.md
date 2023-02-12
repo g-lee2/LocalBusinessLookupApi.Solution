@@ -91,10 +91,10 @@ DELETE /api/Businesses/{id}
 
 ### Note on Different Responses
 
-200: Success
-201: Created (new local business was successfully created)
-400: Error: Bad Request
-404: Error: Not Found (Entered a non-existent id)
+200: Success<br>
+201: Created (new local business was successfully created)<br>
+400: Error: Bad Request<br>
+404: Error: Not Found (Entered a non-existent id)<br>
 
 #### Parameters
 
